@@ -1,3 +1,4 @@
+import SuggestionTopics from "../components/SuggestionTopics";
 export default function Home() {
-  return <div>Home</div>;
+  return <SuggestionTopics />;
 }
