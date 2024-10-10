@@ -1,20 +1,20 @@
-// import { NavLink } from "react-router-dom";
+import { BrowserRouter, NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
     <div className="ml-9">
       <ul className="flex gap-5 text-white font-bold opacity-70 mr-auto">
         <li>
-          <a href="/">Home</a>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <a href="/sports">Sports</a>
+          <NavLink to="/sports">Sports</NavLink>
         </li>
         <li>
-          <a href="/movies">Movies</a>
+          <NavLink to="/movies">Movies</NavLink>
         </li>
         <li>
-          <a href="/tv-shows">TV Shows</a>
+          <NavLink to="/tv-shows">TV Shows</NavLink>
         </li>
         <li>More</li>
       </ul>
