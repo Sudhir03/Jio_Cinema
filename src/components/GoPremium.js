@@ -1,4 +1,4 @@
-function GoPremium() {
+export default function GoPremium() {
   return (
     <div className="border-[2px] border-yellow-500 rounded-full flex gap-1 py-2 px-4 ml-2">
       <img src="./images/crown.svg" alt="crown" />
@@ -6,5 +6,3 @@ function GoPremium() {
     </div>
   );
 }
-
-export default GoPremium;
