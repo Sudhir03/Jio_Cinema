@@ -6,7 +6,7 @@ function App() {
     <>
       <Header />
       <Main />
-      <h1>Aman</h1>
+      
     </>
   );
 }
