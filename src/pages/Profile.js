@@ -1,3 +1,4 @@
+import ProfileSetup from "../components/ProfileSetup";
 export default function Profile() {
-  return <div>Profile</div>;
+  return <ProfileSetup/>;
 }
