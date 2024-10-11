@@ -8,11 +8,18 @@ import Premium from "../pages/Premium";
 import Profile from "../pages/Profile";
 import Search from "../pages/Search";
 import PageNotFound from "../pages/PageNotFound";
+import { useState } from "react";
+import MoreContentPanel from "./MoreContentPanel";
 
 function App() {
+  const [showMorePanel, setShowMorePanel] = useState(false);
   return (
-    <>
-      <Header />
+    <div className="relative">
+      <Header
+        showMorePanel={showMorePanel}
+        setShowMorePanel={setShowMorePanel}
+      />
+      {showMorePanel && <MoreContentPanel />}
 
       <Routes>
         <Route index element={<Home />} />
@@ -24,7 +31,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-    </>
+    </div>
   );
 }
 
