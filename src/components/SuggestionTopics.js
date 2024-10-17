@@ -1,26 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const categories = [
-  "For You",
-  "IND vs NZ",
-  "Bigg Boss",
-  "FREE Movies",
-  "BBK",
-  "FREE Anime",
-  "Kids & Family",
-  "ISL",
-  "Bigg Boss Marathi",
-  "KKK",
-  "KKK",
-  "Cricket",
-  "FREE Shows",
-  "Reality",
-  "Premium",
-  "Badminton",
-];
-
-export default function TopicsNav() {
+export default function SuggestionTopics({ categories }) {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("For You");
@@ -100,20 +81,3 @@ export default function TopicsNav() {
     </div>
   );
 }
-
-// return (
-//   <>
-//     <div className="  w-full h-[80px] flex justify-between items-center bg-[#0d1a27] px-10 ">
-//       {topics.map((topic, index) => (
-//         <div
-//           key={index}
-//           className={`${
-//             index === 0 ? "bg-white text-black " : "bg-gray-500 bg-opacity-50 text-white"
-//           } pt-1 px-[8px] h-[35px] w-auto max-w-[150px]  text-[16px] text-nowrap  rounded-3xl font-semibold cursor-pointer  hover:bg-opacity-100`}
-//         >
-//           {topic}
-//         </div>
-//       ))}
-//     </div>
-//   </>
-// );

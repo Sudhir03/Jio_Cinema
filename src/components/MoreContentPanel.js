@@ -8,7 +8,7 @@ export default function MoreContentPanel() {
             <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg">
               <img
                 className=" h-5 w-5"
-                src="./images/ic_premium_inactive.svg"
+                src="/images/ic_premium_inactive.svg"
                 alt=""
               />
               <span className="text-gray-200 font-semibold">Premium</span>
@@ -16,7 +16,7 @@ export default function MoreContentPanel() {
             <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg">
               <img
                 className=" h-5 w-5"
-                src="./images/ic_news_inactive.svg"
+                src="/images/ic_news_inactive.svg"
                 alt=""
               />
               <span className="text-gray-200 font-semibold">News</span>
@@ -24,7 +24,7 @@ export default function MoreContentPanel() {
             <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg">
               <img
                 className=" h-5 w-5"
-                src="./images/ic_family_inactive.svg"
+                src="/images/ic_family_inactive.svg"
                 alt=""
               />
               <span className="text-gray-200 font-semibold">Kids & Family</span>
@@ -32,7 +32,7 @@ export default function MoreContentPanel() {
             <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg">
               <img
                 className=" h-5 w-5"
-                src="./images/ic_originals_inactive.svg"
+                src="/images/ic_originals_inactive.svg"
                 alt=""
               />
               <span className="text-gray-200 font-semibold">Originals</span>
@@ -40,7 +40,7 @@ export default function MoreContentPanel() {
             <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg">
               <img
                 className=" h-5 w-5"
-                src="./images/ic_cricket_inactive.svg"
+                src="/images/ic_cricket_inactive.svg"
                 alt=""
               />
               <span className="text-gray-200 font-semibold">Cricket</span>
@@ -48,7 +48,7 @@ export default function MoreContentPanel() {
             <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg">
               <img
                 className=" h-5 w-5"
-                src="./images/ic_hindi_inactive.svg"
+                src="/images/ic_hindi_inactive.svg"
                 alt=""
               />
               <span className="text-gray-200 font-semibold">Hindi</span>
@@ -60,7 +60,7 @@ export default function MoreContentPanel() {
             My JioCinema
           </span>
           <span className="flex gap-3">
-            <img src="./images/ic_playlist_successful.svg" alt="" />
+            <img src="/images/ic_playlist_successful.svg" alt="" />
             <span className="text-white font-semibold">Watchlist</span>
           </span>
         </div>

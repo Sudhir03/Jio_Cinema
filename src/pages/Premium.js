@@ -48,7 +48,7 @@ function Premium() {
     }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(imageDuration);
-  }, [images.length]);
+  });
 
   const handleNext = () => {
     if (currentIndex === images.length) {
@@ -76,7 +76,7 @@ function Premium() {
 
   // Navigate to the payment page
   function paymentClickHandler() {
-    paymentNavigate("PaymentPage"); // Relative path, to navigate within the current route
+    paymentNavigate("/premium/payment-page"); // Relative path, to navigate within the current route
   }
 
   const carouselContainer = {

@@ -18,5 +18,5 @@ export default function Home() {
     "Premium",
   ];
 
-  return <SuggestionTopics topics={topics} />;
+  return <SuggestionTopics categories={topics} />;
 }
