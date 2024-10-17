@@ -15,3 +15,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* Navbar.css */
+
+
+/* Styling for active link */
+.nav-item.active {
+  opacity: 100;
+  font-weight: bold;
+  border-bottom: 4px solid #D9008D;
+
+}
+
+.nav-item:hover {
+  opacity: 100;
+}
