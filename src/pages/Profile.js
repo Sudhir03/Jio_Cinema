@@ -1,4 +1,4 @@
-import ProfileSetup from "../components/ProfileSetup";
+import GuestUser from "../components/GuestUser";
 export default function Profile() {
-  return <ProfileSetup/>;
+  return <GuestUser></GuestUser>;
 }

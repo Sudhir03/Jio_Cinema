@@ -6,7 +6,8 @@ import Search from "./Search";
 
 export default function Header({ showMorePanel, setShowMorePanel }) {
   return (
-    <header className="bg-black w-full flex items-center px-12 py-[18px] border-b-[1px] border-white border-opacity-25">
+    <header
+      className="bg-black w-full flex items-center px-12 py-[18px] border-b-[1px] border-white border-opacity-25 ">
       <Logo />
       <GoPremium />
       <Navbar
@@ -18,3 +19,6 @@ export default function Header({ showMorePanel, setShowMorePanel }) {
     </header>
   );
 }
+
+
+// 

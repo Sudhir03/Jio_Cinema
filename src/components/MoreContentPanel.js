@@ -1,6 +1,6 @@
 export default function MoreContentPanel() {
   return (
-    <div className="absolute  h-dynamic w-full bg-black bg-opacity-60">
+    <div className="absolute  h-dynamic z-10 w-full bg-black bg-opacity-60">
       <div className=" flex h-[50%] w-[60%] bg-gray-900 rounded-b-xl border-[0.5px] border-yellow-50 border-opacity-50 mx-auto">
         <div className="flex flex-col h-full w-[60%] border-r-[0.5px] border-yellow-50 border-opacity-50 justify-center gap-y-4 px-10 py-16 ">
           <span className="text-white text-3xl font-extrabold">Browse</span>

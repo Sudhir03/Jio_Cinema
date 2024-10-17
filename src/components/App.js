@@ -10,11 +10,12 @@ import Search from "../pages/Search";
 import PageNotFound from "../pages/PageNotFound";
 import { useState } from "react";
 import MoreContentPanel from "./MoreContentPanel";
+import PaymentPage from "../pages/PaymentPage";
 
 function App() {
   const [showMorePanel, setShowMorePanel] = useState(false);
   return (
-    <div className="relative">
+    <div className=" ">
       <Header
         showMorePanel={showMorePanel}
         setShowMorePanel={setShowMorePanel}
@@ -29,6 +30,10 @@ function App() {
         <Route path="/premium" element={<Premium />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/search" element={<Search />} />
+        <Route
+          path="/premium/PaymentPage"
+          element={<PaymentPage></PaymentPage>}
+        />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
