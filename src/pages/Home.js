@@ -1,4 +1,6 @@
 import SuggestionTopics from "../components/SuggestionTopics";
+import Carousel from "../components/Carousel";
+
 export default function Home() {
   const categories = [
     "For You",
@@ -18,5 +20,14 @@ export default function Home() {
     "Premium",
   ];
 
-  return <SuggestionTopics categories={categories} />;
+  const OPTIONS = { loop: true };
+  const SLIDE_COUNT = 5;
+  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
+
+  return (
+    <>
+      <SuggestionTopics categories={categories} />
+      <Carousel slides={SLIDES} options={OPTIONS} />
+    </>
+  );
 }
