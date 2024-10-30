@@ -11,11 +11,12 @@ import PageNotFound from "../pages/PageNotFound";
 import { useState } from "react";
 import MoreContentPanel from "./MoreContentPanel";
 import PaymentPage from "./PaymentPage";
+import Footer from "./Footer";
 
 function App() {
   const [showMorePanel, setShowMorePanel] = useState(false);
   return (
-    <div className=" ">
+    <>
       <Header
         showMorePanel={showMorePanel}
         setShowMorePanel={setShowMorePanel}
@@ -36,7 +37,9 @@ function App() {
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-    </div>
+
+      <Footer />
+    </>
   );
 }
 
