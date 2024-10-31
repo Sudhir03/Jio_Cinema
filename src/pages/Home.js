@@ -1,5 +1,6 @@
 import SuggestionTopics from "../components/SuggestionTopics";
 import Carousel from "../components/Carousel";
+import Suggestions from "../components/Suggestions";
 
 export default function Home() {
   const categories = [
@@ -28,6 +29,7 @@ export default function Home() {
     <>
       <SuggestionTopics categories={categories} />
       <Carousel slides={SLIDES} options={OPTIONS} />
+      <Suggestions />
     </>
   );
 }
