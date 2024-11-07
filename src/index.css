@@ -18,13 +18,11 @@ code {
 
 /* Navbar.css */
 
-
 /* Styling for active link */
 .nav-item.active {
   opacity: 100;
   font-weight: bold;
-  border-bottom: 4px solid #D9008D;
-
+  border-bottom: 4px solid #d9008d;
 }
 
 .nav-item:hover {

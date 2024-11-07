@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1a1a1a] text-white px-8 pt-12">
+    <footer className="bg-[#1a1a1a] text-white px-8 pt-12 ">
       <div className="flex justify-between">
         <div className="flex gap-20 w-[40%]">
           {/* JioCinema Section */}
