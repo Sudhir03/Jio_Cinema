@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import PremiumCard from "../components/PremiumCard";
 
-const premium = {
+let premium = {
+  ID: "d8338924-59d5-4ce4-b086-eb766a3d6ec8",
   name: "Premium",
   Offer: "SPECIAL OFFER",
   Features: [
@@ -18,7 +19,8 @@ const premium = {
   discount: "51% OFF",
 };
 
-const family = {
+let family = {
+  ID: "9ffa47f6-df9a-443e-814d-60a4e251d570",
   name: "Family",
   Offer: "SPECIAL OFFER",
   Features: ["Enjoy all Premium plan benefits on up to 4 devices"],
@@ -28,7 +30,7 @@ const family = {
   discount: "40% OFF",
 };
 
-function Premium() {
+export default function Premium() {
   const images = [
     "/images/carousal_image1.avif",
     "/images/carousal_image2.avif",
@@ -39,6 +41,9 @@ function Premium() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
+  const [selectedPlanID, setSelectedPlanID] = useState(
+    "d8338924-59d5-4ce4-b086-eb766a3d6ec8"
+  );
   const arrowNavigate = useNavigate();
   const paymentNavigate = useNavigate();
 
@@ -76,7 +81,8 @@ function Premium() {
 
   // Navigate to the payment page
   function paymentClickHandler() {
-    paymentNavigate("payment-page"); // Relative path, to navigate within the current route
+    // check which plan is selected and pass the id of that plan
+    paymentNavigate(`payment-page/plan/${selectedPlanID}`); // Relative path, to navigate within the current route
   }
 
   const carouselContainer = {
@@ -153,8 +159,16 @@ function Premium() {
 
           {/* Premium cards */}
           <div className="px-10 pt-16 flex gap-3">
-            <PremiumCard {...premium} />
-            <PremiumCard {...family} />
+            <PremiumCard
+              plan={premium}
+              selectedPlanID={selectedPlanID}
+              setSelectedPlanID={setSelectedPlanID}
+            />
+            <PremiumCard
+              plan={family}
+              selectedPlanID={selectedPlanID}
+              setSelectedPlanID={setSelectedPlanID}
+            />
           </div>
 
           {/* Promo code section */}
@@ -203,5 +217,3 @@ function Premium() {
     </div>
   );
 }
-
-export default Premium;

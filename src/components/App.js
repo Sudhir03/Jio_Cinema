@@ -30,7 +30,10 @@ function App() {
         <Route path="/tv-shows" element={<TvShows />} />
         <Route path="/premium">
           <Route index element={<Premium />} />
-          <Route path="payment-page" element={<PaymentPage></PaymentPage>} />
+          <Route
+            path="payment-page/plan/:id"
+            element={<PaymentPage></PaymentPage>}
+          />
         </Route>
         <Route path="/profile" element={<Profile />} />
         <Route path="/search" element={<Search />} />
