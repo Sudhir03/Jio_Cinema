@@ -1,4 +1,8 @@
 import SuggestionTopics from "../components/SuggestionTopics";
+import Carousel from "../components/Carousel";
+import PostersCarousel from "../components/PostersCarousel";
+import { useCinema } from "../contexts/jioCinemaContext";
+
 const categories = [
   "For You",
   "IND vs BAN",
@@ -30,5 +34,33 @@ const categories = [
 ];
 
 export default function Sports() {
-  return <SuggestionTopics categories={categories} />;
+  const {
+    sportsCarouselPosters,
+    popularSportsPosters,
+    nowPlayingSportsPosters,
+    topRatedSportsPosters,
+    upcomingSportsPosters,
+  } = useCinema();
+  return (
+    <>
+      <SuggestionTopics categories={categories} />
+      <Carousel mainCarouselImages={sportsCarouselPosters} />
+      <PostersCarousel
+        heading={"Hot Right Now"}
+        posters={popularSportsPosters}
+      />
+      <PostersCarousel
+        heading={"Upcoming Movies"}
+        posters={upcomingSportsPosters}
+      />
+      <PostersCarousel
+        heading={"Fresh Episodes"}
+        posters={nowPlayingSportsPosters}
+      />
+      <PostersCarousel
+        heading={"Most Rated Movies"}
+        posters={topRatedSportsPosters}
+      />
+    </>
+  );
 }

@@ -6,6 +6,7 @@ export default function Search() {
       <img src="/images/ic_search.svg" alt="search icon" />
       <NavLink to="/search">
         <input
+          id="query"
           className="bg-gray-700 outline-none text-white "
           type="text"
           placeholder="Movies, Shows and more"

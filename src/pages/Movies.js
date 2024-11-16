@@ -1,4 +1,7 @@
 import SuggestionTopics from "../components/SuggestionTopics";
+import Carousel from "../components/Carousel";
+import PostersCarousel from "../components/PostersCarousel";
+import { useCinema } from "../contexts/jioCinemaContext";
 
 const categories = [
   "For You",
@@ -34,5 +37,33 @@ const categories = [
 ];
 
 export default function Movies() {
-  return <SuggestionTopics categories={categories} />;
+  const {
+    moviesCarouselPosters,
+    popularMoviesPosters,
+    nowPlayingMoviesPosters,
+    topRatedMoviesPosters,
+    upcomingMoviesPosters,
+  } = useCinema();
+  return (
+    <>
+      <SuggestionTopics categories={categories} />
+      <Carousel mainCarouselImages={moviesCarouselPosters} />
+      <PostersCarousel
+        heading={"Hot Right Now"}
+        posters={popularMoviesPosters}
+      />
+      <PostersCarousel
+        heading={"Upcoming Movies"}
+        posters={upcomingMoviesPosters}
+      />
+      <PostersCarousel
+        heading={"Fresh Episodes"}
+        posters={nowPlayingMoviesPosters}
+      />
+      <PostersCarousel
+        heading={"Most Rated Movies"}
+        posters={topRatedMoviesPosters}
+      />
+    </>
+  );
 }

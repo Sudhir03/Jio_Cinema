@@ -37,20 +37,42 @@ async function getMoviesPoster(url, maxPosters = 10) {
   }
 }
 
+const getFormattedDate = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+
 function JioCinema({ children }) {
-  const [mainCarouselImages, setMainCarouselImages] = useState([]);
-  const [popularPosters, setPopularPosters] = useState([]);
-  const [nowPlayingPosters, setNowPlayingPosters] = useState([]);
-  const [topRatedPosters, setTopRatedPosters] = useState([]);
-  const [upcomingMoviesPosters, setUpcomingMoviesPosters] = useState([]);
+  // home page states
+  const [homeCarouselPosters, setHomeCarouselPosters] = useState([]);
+  const [popularHomePosters, setPopularHomePosters] = useState([]);
+  const [nowPlayingHomePosters, setNowPlayingHomePosters] = useState([]);
+  const [topRatedHomePosters, setTopRatedHomePosters] = useState([]);
+  const [upcomingHomePosters, setUpcomingHomePosters] = useState([]);
+
+  // sports page states
+  const [sportsCarouselPosters, setSportsCarouselPosters] = useState([]);
+  const [popularSportsPosters, setPopularSportsPosters] = useState([]);
+  const [nowPlayingSportsPosters, setNowPlayingSportsPosters] = useState([]);
+  const [topRatedSportsPosters, setTopRatedSportsPosters] = useState([]);
+  const [upcomingSportsPosters, setUpcomingSportsPosters] = useState([]);
+
+  // movies page states
+
+  // tv page states
+
+  // home page useEffects
 
   useEffect(function () {
     async function getPlayingNowMoviesPosters() {
       const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`;
       const images = await getMoviesPoster(url);
 
-      setMainCarouselImages(images);
-      setNowPlayingPosters(images);
+      setHomeCarouselPosters(images);
+      setNowPlayingHomePosters(images);
     }
     getPlayingNowMoviesPosters();
   }, []);
@@ -60,7 +82,7 @@ function JioCinema({ children }) {
       const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
       const posters = await getMoviesPoster(url);
 
-      setPopularPosters(posters);
+      setPopularHomePosters(posters);
     }
 
     getPopularMoviesPosters();
@@ -71,7 +93,7 @@ function JioCinema({ children }) {
       const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
       const posters = await getMoviesPoster(url);
 
-      setTopRatedPosters(posters);
+      setTopRatedHomePosters(posters);
     }
 
     getTopRatedMoviesPosters();
@@ -82,20 +104,73 @@ function JioCinema({ children }) {
       const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`;
       const posters = await getMoviesPoster(url);
 
-      setUpcomingMoviesPosters(posters);
+      setUpcomingHomePosters(posters);
     }
 
     getUpcomingMovies();
   }, []);
 
+  // sports page useEffects
+
+  useEffect(function () {
+    async function getPlayingNowSportsPosters() {
+      const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=sports`;
+      const images = await getMoviesPoster(url);
+
+      setSportsCarouselPosters(images);
+      setNowPlayingSportsPosters(images);
+    }
+    getPlayingNowSportsPosters();
+  }, []);
+
+  useEffect(function () {
+    async function getPopularSportsPosters() {
+      const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=18&sort_by=popularity.desc`;
+      const posters = await getMoviesPoster(url);
+
+      setPopularSportsPosters(posters);
+    }
+
+    getPopularSportsPosters();
+  }, []);
+
+  useEffect(function () {
+    async function getTopRatedSportsPosters() {
+      const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=18&sort_by=vote_average.desc`;
+      const posters = await getMoviesPoster(url);
+
+      setTopRatedSportsPosters(posters);
+    }
+
+    getTopRatedSportsPosters();
+  }, []);
+
+  useEffect(function () {
+    async function getUpcomingSportsPosters() {
+      const today = getFormattedDate();
+      const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=18&primary_release_date.gte=${today}`;
+      const posters = await getMoviesPoster(url);
+
+      setUpcomingSportsPosters(posters);
+    }
+
+    getUpcomingSportsPosters();
+  }, []);
+
   return (
     <JioCinemaContext.Provider
       value={{
-        mainCarouselImages,
-        popularPosters,
-        nowPlayingPosters,
-        topRatedPosters,
-        upcomingMoviesPosters,
+        homeCarouselPosters,
+        popularHomePosters,
+        nowPlayingHomePosters,
+        topRatedHomePosters,
+        upcomingHomePosters,
+
+        sportsCarouselPosters,
+        popularSportsPosters,
+        nowPlayingSportsPosters,
+        topRatedSportsPosters,
+        upcomingSportsPosters,
       }}
     >
       {children}

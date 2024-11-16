@@ -2,11 +2,9 @@ import React from "react";
 import { PrevButton, NextButton, usePrevNextButtons } from "./CarouselButtons";
 import useEmblaCarousel from "embla-carousel-react";
 import "../CSS/carousel.css";
-import { useCinema } from "../contexts/jioCinemaContext";
 
-export default function Carousel() {
+export default function Carousel({ mainCarouselImages }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-  const { mainCarouselImages } = useCinema();
 
   const {
     prevBtnDisabled,
