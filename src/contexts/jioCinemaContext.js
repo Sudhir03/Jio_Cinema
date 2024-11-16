@@ -2,8 +2,40 @@ import { useContext, useEffect, useState } from "react";
 import { createContext } from "react";
 
 const JioCinemaContext = createContext();
+const apiKey = process.env.REACT_APP_API_KEY;
 
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p";
+
+async function getMoviesPoster(url, maxPosters = 10) {
+  try {
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+
+    const data = await res.json();
+
+    if (!Array.isArray(data.results)) {
+      throw new Error("Invalid API response: results is not an array.");
+    }
+
+    const movies = data.results;
+    const images = [];
+
+    for (let index = 0; index < movies.length; index++) {
+      if (index === maxPosters) break;
+
+      if (movies[index].poster_path) {
+        images.push(`${IMAGE_BASE_URL}/w780/${movies[index].poster_path}`);
+      }
+    }
+    return images;
+  } catch (error) {
+    console.error("Failed to get movies:", error);
+    return []; // Return an empty array on error
+  }
+}
 
 function JioCinema({ children }) {
   const [mainCarouselImages, setMainCarouselImages] = useState([]);
@@ -13,107 +45,44 @@ function JioCinema({ children }) {
   const [upcomingMoviesPosters, setUpcomingMoviesPosters] = useState([]);
 
   useEffect(function () {
-    async function getPlayingNowMovies() {
-      const apiKey = "f6d5271c500bfd3acbffd317e60e8b7a"; // ideally, use an environment variable
+    async function getPlayingNowMoviesPosters() {
       const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`;
+      const images = await getMoviesPoster(url);
 
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-        const movieArr = data.results;
-
-        const images = [];
-        for (let index = 0; index < movieArr.length; index++) {
-          if (index === 10) break;
-          images.push(`${IMAGE_BASE_URL}/w780/${movieArr[index].poster_path}`);
-        }
-
-        setMainCarouselImages(images);
-        setNowPlayingPosters(images);
-      } catch (error) {
-        console.error("Failed to fetch now-playing movies:", error);
-      }
+      setMainCarouselImages(images);
+      setNowPlayingPosters(images);
     }
-
-    getPlayingNowMovies();
+    getPlayingNowMoviesPosters();
   }, []);
 
   useEffect(function () {
-    async function getPopularMovies() {
-      const apiKey = "f6d5271c500bfd3acbffd317e60e8b7a"; // ideally, use an environment variable
+    async function getPopularMoviesPosters() {
       const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
+      const posters = await getMoviesPoster(url);
 
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-        console.log(data);
-
-        const movieArr = data.results;
-
-        const posters = [];
-        for (let index = 0; index < movieArr.length; index++) {
-          if (index === 10) break;
-          posters.push(`${IMAGE_BASE_URL}/w780/${movieArr[index].poster_path}`);
-        }
-
-        setPopularPosters(posters);
-      } catch (error) {
-        console.error("Failed to fetch popular movies:", error);
-      }
+      setPopularPosters(posters);
     }
 
-    getPopularMovies();
+    getPopularMoviesPosters();
   }, []);
 
   useEffect(function () {
-    async function getTopRatedMovies() {
-      const apiKey = "f6d5271c500bfd3acbffd317e60e8b7a"; // ideally, use an environment variable
+    async function getTopRatedMoviesPosters() {
       const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
+      const posters = await getMoviesPoster(url);
 
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-        console.log(data);
-
-        const movieArr = data.results;
-
-        const posters = [];
-        for (let index = 0; index < movieArr.length; index++) {
-          if (index === 10) break;
-          posters.push(`${IMAGE_BASE_URL}/w780/${movieArr[index].poster_path}`);
-        }
-
-        setTopRatedPosters(posters);
-      } catch (error) {
-        console.error("Failed to fetch top rated movies:", error);
-      }
+      setTopRatedPosters(posters);
     }
 
-    getTopRatedMovies();
+    getTopRatedMoviesPosters();
   }, []);
 
   useEffect(function () {
     async function getUpcomingMovies() {
-      const apiKey = "f6d5271c500bfd3acbffd317e60e8b7a"; // ideally, use an environment variable
       const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`;
+      const posters = await getMoviesPoster(url);
 
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-        console.log(data);
-
-        const movieArr = data.results;
-
-        const posters = [];
-        for (let index = 0; index < movieArr.length; index++) {
-          if (index === 10) break;
-          posters.push(`${IMAGE_BASE_URL}/w780/${movieArr[index].poster_path}`);
-        }
-
-        setUpcomingMoviesPosters(posters);
-      } catch (error) {
-        console.error("Failed to fetch upcoming movies:", error);
-      }
+      setUpcomingMoviesPosters(posters);
     }
 
     getUpcomingMovies();
