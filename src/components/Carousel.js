@@ -2,9 +2,11 @@ import React from "react";
 import { PrevButton, NextButton, usePrevNextButtons } from "./CarouselButtons";
 import useEmblaCarousel from "embla-carousel-react";
 import "../CSS/carousel.css";
+import { useCinema } from "../contexts/jioCinemaContext";
 
-export default function Carousel({ slides, options }) {
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+export default function Carousel() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const { mainCarouselImages } = useCinema();
 
   const {
     prevBtnDisabled,
@@ -17,9 +19,9 @@ export default function Carousel({ slides, options }) {
     <section className="embla">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {slides.map((index) => (
+          {mainCarouselImages.map((image_path, index) => (
             <div className="embla__slide" key={index}>
-              <div className="carousel-images"></div>
+              <img src={image_path} alt="" className="carousel-images" />
             </div>
           ))}
         </div>

@@ -1,8 +1,15 @@
 import SuggestionTopics from "../components/SuggestionTopics";
 import Carousel from "../components/Carousel";
-import Suggestions from "../components/Suggestions";
+import PostersCarousel from "../components/PostersCarousel";
+import { useCinema } from "../contexts/jioCinemaContext";
 
 export default function Home() {
+  const {
+    popularPosters,
+    nowPlayingPosters,
+    topRatedPosters,
+    upcomingMoviesPosters,
+  } = useCinema();
   const categories = [
     "For You",
     "INDvsBAN",
@@ -21,15 +28,20 @@ export default function Home() {
     "Premium",
   ];
 
-  const OPTIONS = { loop: true };
-  const SLIDE_COUNT = 5;
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
-
   return (
     <>
       <SuggestionTopics categories={categories} />
-      <Carousel slides={SLIDES} options={OPTIONS} />
-      <Suggestions />
+      <Carousel />
+      <PostersCarousel heading={"Hot Right Now"} posters={popularPosters} />
+      <PostersCarousel
+        heading={"Upcoming Movies"}
+        posters={upcomingMoviesPosters}
+      />
+      <PostersCarousel heading={"Fresh Episodes"} posters={nowPlayingPosters} />
+      <PostersCarousel
+        heading={"Most Rated Movies"}
+        posters={topRatedPosters}
+      />
     </>
   );
 }
