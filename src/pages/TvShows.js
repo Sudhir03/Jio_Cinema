@@ -33,7 +33,7 @@ export default function TvShows() {
     tvShowsCarouselPosters,
     popularTvShowsPosters,
     nowPlayingTvShowsPosters,
-    topRatedtvShowsPosters,
+    topRatedTvShowsPosters,
     upcomingTvShowsPosters,
   } = useCinema();
   return (
@@ -45,16 +45,16 @@ export default function TvShows() {
         posters={popularTvShowsPosters}
       />
       <PostersCarousel
-        heading={"Upcoming Movies"}
-        posters={upcomingTvShowsPosters}
-      />
-      <PostersCarousel
         heading={"Fresh Episodes"}
         posters={nowPlayingTvShowsPosters}
       />
       <PostersCarousel
         heading={"Most Rated Movies"}
-        posters={topRatedtvShowsPosters}
+        posters={topRatedTvShowsPosters}
+      />
+      <PostersCarousel
+        heading={"Upcoming Movies"}
+        posters={upcomingTvShowsPosters}
       />
     </>
   );

@@ -23,29 +23,32 @@ const categories = [
 
 export default function Home() {
   const {
-    homeCarouselPosters,
-    popularHomePosters,
-    nowPlayingHomePosters,
-    topRatedHomePosters,
-    upcomingHomePosters,
+    moviesCarouselPosters,
+    popularSportsPosters,
+    nowPlayingTvShowsPosters,
+    topRatedMoviesPosters,
+    upcomingSportsPosters,
   } = useCinema();
 
   return (
     <>
       <SuggestionTopics categories={categories} />
-      <Carousel mainCarouselImages={homeCarouselPosters} />
-      <PostersCarousel heading={"Hot Right Now"} posters={popularHomePosters} />
+      <Carousel mainCarouselImages={moviesCarouselPosters} />
       <PostersCarousel
-        heading={"Upcoming Movies"}
-        posters={upcomingHomePosters}
+        heading={"Hot Right Now"}
+        posters={popularSportsPosters}
       />
       <PostersCarousel
         heading={"Fresh Episodes"}
-        posters={nowPlayingHomePosters}
+        posters={nowPlayingTvShowsPosters}
       />
       <PostersCarousel
         heading={"Most Rated Movies"}
-        posters={topRatedHomePosters}
+        posters={topRatedMoviesPosters}
+      />
+      <PostersCarousel
+        heading={"Upcoming Movies"}
+        posters={upcomingSportsPosters}
       />
     </>
   );

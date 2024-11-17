@@ -53,16 +53,16 @@ export default function Movies() {
         posters={popularMoviesPosters}
       />
       <PostersCarousel
-        heading={"Upcoming Movies"}
-        posters={upcomingMoviesPosters}
+        heading={"Most Rated Movies"}
+        posters={topRatedMoviesPosters}
       />
       <PostersCarousel
         heading={"Fresh Episodes"}
         posters={nowPlayingMoviesPosters}
       />
       <PostersCarousel
-        heading={"Most Rated Movies"}
-        posters={topRatedMoviesPosters}
+        heading={"Upcoming Movies"}
+        posters={upcomingMoviesPosters}
       />
     </>
   );

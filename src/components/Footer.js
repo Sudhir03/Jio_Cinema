@@ -9,16 +9,16 @@ export default function Footer() {
           <div className="space-y-4 font-bold">
             <h2 className="text-xl ">JioCinema</h2>
             <nav className="flex flex-col space-y-2">
-              <Link href="#" className="hover:text-gray-300">
+              <Link to="/" className="hover:text-gray-300">
                 For You
               </Link>
-              <Link href="#" className="hover:text-gray-300">
+              <Link to="/sports" className="hover:text-gray-300">
                 Sports
               </Link>
-              <Link href="#" className="hover:text-gray-300">
+              <Link to="/movies" className="hover:text-gray-300">
                 Movies
               </Link>
-              <Link href="#" className="hover:text-gray-300">
+              <Link to="tv-shows" className="hover:text-gray-300">
                 TV Shows
               </Link>
             </nav>
