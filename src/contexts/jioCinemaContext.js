@@ -67,6 +67,12 @@ function JioCinema({ children }) {
   const [topRatedTvShowsPosters, setTopRatedTvShowsPosters] = useState([]);
   const [upcomingTvShowsPosters, setUpcomingTvShowsPosters] = useState([]);
 
+  // more content state
+  const [showMorePanel, setShowMorePanel] = useState(false);
+
+  // profile state
+  const [profileVisibility, setProfileVisibility] = useState(false);
+
   // sports page useEffects
   useEffect(function () {
     async function getPlayingNowSportsPosters() {
@@ -226,6 +232,12 @@ function JioCinema({ children }) {
         nowPlayingTvShowsPosters,
         topRatedTvShowsPosters,
         upcomingTvShowsPosters,
+
+        showMorePanel,
+        setShowMorePanel,
+
+        profileVisibility,
+        setProfileVisibility,
       }}
     >
       {children}

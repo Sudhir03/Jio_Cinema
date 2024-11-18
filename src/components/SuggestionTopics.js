@@ -38,7 +38,7 @@ export default function TopicsNav({ categories }) {
       {showLeftArrow && (
         <button
           onClick={() => handleScroll("left")}
-          className="absolute left-4 z-10  p-2 bg-[#2c2c2c] text-white rounded-full hover:bg-[#3c3c3c]"
+          className="absolute left-4 z-1  p-2 bg-[#2c2c2c] text-white rounded-full hover:bg-[#3c3c3c]"
           aria-label="Scroll left"
         >
           <ChevronLeft size={24} />
@@ -72,7 +72,7 @@ export default function TopicsNav({ categories }) {
       {showRightArrow && (
         <button
           onClick={() => handleScroll("right")}
-          className="absolute right-4 z-10 p-2 bg-[#2c2c2c] text-white rounded-full hover:bg-[#3c3c3c]"
+          className="absolute right-4 z-1 p-2 bg-[#2c2c2c] text-white rounded-full hover:bg-[#3c3c3c]"
           aria-label="Scroll right"
         >
           <ChevronRight size={24} />

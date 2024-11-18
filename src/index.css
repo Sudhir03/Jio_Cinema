@@ -28,3 +28,7 @@ code {
 .nav-item:hover {
   opacity: 100;
 }
+
+.scroll-disable {
+  overflow: hidden;
+}

@@ -1,6 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Footer() {
+  const location = useLocation();
+  const renderFooter = !location.pathname.split("/").includes("premium");
+
+  if (!renderFooter) return null;
+
   return (
     <footer className="bg-[#1a1a1a] text-white px-8 pt-12 ">
       <div className="flex justify-between">

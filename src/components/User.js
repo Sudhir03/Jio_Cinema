@@ -1,9 +1,8 @@
-import React from "react";
 import { ChevronRight } from "lucide-react";
 
-function GuestUser() {
+export default function User() {
   return (
-    <div className="">
+    <>
       <div className="top-0 relative w-[400px] bg-black opacity-90 h-[652px]  mr-0 ml-auto pt-20 px-8  my-auto ">
         <img
           src="/images/avatar_guest.svg"
@@ -40,8 +39,6 @@ function GuestUser() {
           24.09.23.4-9a52aed-bbfa9709-257a-48cc-b8ee-fe2895a2e09a
         </span>
       </div>
-    </div>
+    </>
   );
 }
-
-export default GuestUser;
