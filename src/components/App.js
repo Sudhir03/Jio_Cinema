@@ -9,7 +9,9 @@ import PageNotFound from "../pages/PageNotFound";
 import MoreContentPanel from "./MoreContentPanel";
 import PaymentPage from "./PaymentPage";
 import Footer from "./Footer";
-import Sheet from "./Sheet";
+import Profile from "./Profile";
+import LoginForm from "./LoginForm";
+import VerifyOTP from "./VerifyOTP";
 import { useCinema } from "../contexts/jioCinemaContext";
 
 function App() {
@@ -24,6 +26,10 @@ function App() {
         <Route path="/sports" element={<Sports />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/tv-shows" element={<TvShows />} />
+        <Route path="/login">
+          <Route index element={<LoginForm />} />
+          <Route path="verify" element={<VerifyOTP />} />
+        </Route>
         <Route path="/premium">
           <Route index element={<Premium />} />
           <Route
@@ -34,7 +40,7 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
       </Routes>
 
-      <Sheet />
+      <Profile />
       <Footer />
     </div>
   );

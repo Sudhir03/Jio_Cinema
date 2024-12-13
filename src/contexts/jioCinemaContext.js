@@ -45,6 +45,35 @@ const getFormattedDate = () => {
   return `${year}-${month}-${day}`;
 };
 
+const plans = {
+  premium: {
+    ID: "d8338924-59d5-4ce4-b086-eb766a3d6ec8",
+    name: "Premium",
+    Offer: "SPECIAL OFFER",
+    Features: [
+      "Ad-Free (except sports & live)",
+      "Includes all Premium content",
+      "Any 1 device at a time (up to Asli 4K quality)",
+      "Download and watch anytime",
+    ],
+    duration: "1 MONTH",
+    price: 29,
+    mrp: "₹59",
+    discount: "51% OFF",
+  },
+
+  family: {
+    ID: "9ffa47f6-df9a-443e-814d-60a4e251d570",
+    name: "Family",
+    Offer: "SPECIAL OFFER",
+    Features: ["Enjoy all Premium plan benefits on up to 4 devices"],
+    duration: "1 MONTH",
+    price: 89,
+    mrp: "₹149",
+    discount: "40% OFF",
+  },
+};
+
 function JioCinema({ children }) {
   // sports page states
   const [sportsCarouselPosters, setSportsCarouselPosters] = useState([]);
@@ -72,6 +101,9 @@ function JioCinema({ children }) {
 
   // profile state
   const [profileVisibility, setProfileVisibility] = useState(false);
+
+  // user form states
+  const [email, setEmail] = useState("");
 
   // sports page useEffects
   useEffect(function () {
@@ -238,6 +270,11 @@ function JioCinema({ children }) {
 
         profileVisibility,
         setProfileVisibility,
+
+        email,
+        setEmail,
+
+        plans,
       }}
     >
       {children}

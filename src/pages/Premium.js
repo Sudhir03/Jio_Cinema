@@ -2,35 +2,11 @@ import { ArrowLeft } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import PremiumCard from "../components/PremiumCard";
-
-let premium = {
-  ID: "d8338924-59d5-4ce4-b086-eb766a3d6ec8",
-  name: "Premium",
-  Offer: "SPECIAL OFFER",
-  Features: [
-    "Ad-Free (except sports & live)",
-    "Includes all Premium content",
-    "Any 1 device at a time (up to Asli 4K quality)",
-    "Download and watch anytime",
-  ],
-  duration: "1 MONTH",
-  price: 29,
-  mrp: "₹59",
-  discount: "51% OFF",
-};
-
-let family = {
-  ID: "9ffa47f6-df9a-443e-814d-60a4e251d570",
-  name: "Family",
-  Offer: "SPECIAL OFFER",
-  Features: ["Enjoy all Premium plan benefits on up to 4 devices"],
-  duration: "1 MONTH",
-  price: 89,
-  mrp: "₹149",
-  discount: "40% OFF",
-};
+import { useCinema } from "../contexts/jioCinemaContext";
 
 export default function Premium() {
+  const { plans } = useCinema();
+
   const images = [
     "/images/carousal_image1.avif",
     "/images/carousal_image2.avif",
@@ -41,9 +17,7 @@ export default function Premium() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(true);
-  const [selectedPlanID, setSelectedPlanID] = useState(
-    "d8338924-59d5-4ce4-b086-eb766a3d6ec8"
-  );
+  const [selectedPlanID, setSelectedPlanID] = useState(plans.premium.ID); // default selected plan is premium
   const arrowNavigate = useNavigate();
   const paymentNavigate = useNavigate();
 
@@ -135,7 +109,7 @@ export default function Premium() {
         </div>
         <div
           style={{
-            zIndex: 10,
+            zIndex: 2,
             width: "100%",
             height: "100%",
           }}
@@ -160,12 +134,12 @@ export default function Premium() {
           {/* Premium cards */}
           <div className="px-10 pt-16 flex gap-3">
             <PremiumCard
-              plan={premium}
+              plan={plans.premium}
               selectedPlanID={selectedPlanID}
               setSelectedPlanID={setSelectedPlanID}
             />
             <PremiumCard
-              plan={family}
+              plan={plans.family}
               selectedPlanID={selectedPlanID}
               setSelectedPlanID={setSelectedPlanID}
             />

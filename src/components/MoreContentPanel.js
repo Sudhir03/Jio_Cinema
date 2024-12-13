@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCinema } from "../contexts/jioCinemaContext";
 
 export default function MoreContentPanel() {
@@ -10,15 +11,17 @@ export default function MoreContentPanel() {
             <div className="flex flex-col h-full w-[60%] border-r-[0.5px] border-yellow-50 border-opacity-50 justify-center gap-y-4 px-10 py-16 ">
               <span className="text-white text-3xl font-extrabold">Browse</span>
               <div className="grid grid-cols-3 gap-4 ">
-                <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg">
-                  <img
-                    className=" h-5 w-5"
-                    src="/images/ic_premium_inactive.svg"
-                    alt=""
-                  />
-                  <span className="text-gray-200 font-semibold">Premium</span>
-                </div>
-                <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg">
+                <Link to="/premium">
+                  <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg cursor-pointer">
+                    <img
+                      className=" h-5 w-5"
+                      src="/images/ic_premium_inactive.svg"
+                      alt=""
+                    />
+                    <span className="text-gray-200 font-semibold">Premium</span>
+                  </div>
+                </Link>
+                <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg cursor-pointer">
                   <img
                     className=" h-5 w-5"
                     src="/images/ic_news_inactive.svg"
@@ -26,7 +29,7 @@ export default function MoreContentPanel() {
                   />
                   <span className="text-gray-200 font-semibold">News</span>
                 </div>
-                <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg">
+                <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg cursor-pointer">
                   <img
                     className=" h-5 w-5"
                     src="/images/ic_family_inactive.svg"
@@ -36,7 +39,7 @@ export default function MoreContentPanel() {
                     Kids & Family
                   </span>
                 </div>
-                <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg">
+                <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg cursor-pointer">
                   <img
                     className=" h-5 w-5"
                     src="/images/ic_originals_inactive.svg"
@@ -44,7 +47,7 @@ export default function MoreContentPanel() {
                   />
                   <span className="text-gray-200 font-semibold">Originals</span>
                 </div>
-                <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg">
+                <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg cursor-pointer">
                   <img
                     className=" h-5 w-5"
                     src="/images/ic_cricket_inactive.svg"
@@ -52,7 +55,7 @@ export default function MoreContentPanel() {
                   />
                   <span className="text-gray-200 font-semibold">Cricket</span>
                 </div>
-                <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg">
+                <div className="flex flex-col items-center justify-center bg-gray-400 p-5 rounded-lg cursor-pointer">
                   <img
                     className=" h-5 w-5"
                     src="/images/ic_hindi_inactive.svg"

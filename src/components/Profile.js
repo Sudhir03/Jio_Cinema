@@ -1,37 +1,19 @@
 import React, { useRef, useEffect } from "react";
 import { ChevronRight } from "lucide-react";
 import { useCinema } from "../contexts/jioCinemaContext";
+import { useNavigate } from "react-router-dom";
 
-export default function Sheet() {
+export default function Profile() {
   const { profileVisibility, setProfileVisibility } = useCinema();
   const sheetRef = useRef(null);
-  const sheetContentRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        sheetContentRef.current &&
-        !sheetContentRef.current.contains(event.target)
-      ) {
-        setProfileVisibility((is) => !is);
-      }
-    };
-
-    if (profileVisibility) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [profileVisibility, setProfileVisibility]);
-
-  useEffect(() => {
-    function handleClickOutside(event) {
       if (sheetRef.current && !sheetRef.current.contains(event.target)) {
-        setProfileVisibility();
+        setProfileVisibility(false); // Directly set visibility to false instead of toggling
       }
-    }
+    };
 
     if (profileVisibility) {
       document.addEventListener("mousedown", handleClickOutside);
@@ -56,14 +38,17 @@ export default function Sheet() {
           width={80}
           alt="user"
         />
-        <div
-          ref={sheetContentRef}
-          className="z-20 bg-zinc-950 h-[160px] rounded-3xl flex flex-col pt-10 items-center gap-4"
-        >
+        <div className="z-20 bg-zinc-950 h-[160px] rounded-3xl flex flex-col pt-10 items-center gap-4">
           <p className="cursor-pointer text-[25px] font-bold text-white">
             Guest
           </p>
-          <button className="text-white text-[20px] font-bold w-[85px] bg-[#D9008D] h-[43px] rounded-3xl">
+          <button
+            className="text-white text-[20px] font-bold w-[85px] bg-[#D9008D] h-[43px] rounded-3xl"
+            onClick={() => {
+              navigate("/login");
+              setProfileVisibility(false);
+            }}
+          >
             Login
           </button>
         </div>
